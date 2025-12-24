@@ -38,7 +38,7 @@ const submit = () => {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h1 class="text-3xl font-bold text-gray-800 mb-2">Energy Control</h1>
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Energy & Controls</h1>
             <p class="text-gray-600">SICDEC</p>
           </div>
 
