@@ -241,17 +241,15 @@ const getEstadoColor = (estado: string) => {
           >
             <span v-if="dia" class="text-xs sm:text-base font-semibold text-gray-700">{{ dia }}</span>
             
-            <!-- Indicador de mantenimientos -->
-            <div v-if="dia && tieneMantenimientos(dia)" class="absolute bottom-1 left-1/2 transform -translate-x-1/2 flex gap-1">
-              <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-600 rounded-full"></div>
+           <!-- Indicador de mantenimientos -->
+            <div v-if="dia && tieneMantenimientos(dia)" class="absolute top-1 right-1">
+             <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-blue-600 rounded-full shadow-md"> </div>
             </div>
 
             <!-- Indicador de sugerencias -->
-            <div v-if="dia && !tieneMantenimientos(dia) && tieneSugerencias(dia)" class="absolute bottom-1 left-1/2 transform -translate-x-1/2 flex gap-1">
-              <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full"></div>
+            <div v-if="dia && !tieneMantenimientos(dia) && tieneSugerencias(dia)" class="absolute top-1 right-1">
+            <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-yellow-500 rounded-full shadow-md"> </div>
             </div>
-          </div>
-        </div>
 
         <!-- Leyenda -->
         <div class="flex flex-col sm:flex-row gap-3 sm:gap-6 mt-6 justify-center text-xs sm:text-sm">
@@ -265,6 +263,8 @@ const getEstadoColor = (estado: string) => {
           </div>
         </div>
       </div>
+    </div>
+    </div>
     </div>
 
     <!-- Modal de detalles -->
