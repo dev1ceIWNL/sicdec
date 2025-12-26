@@ -227,30 +227,26 @@ const getEstadoColor = (estado: string) => {
 
         <!-- Días del mes -->
         <div class="grid grid-cols-7 gap-1 sm:gap-2">
-          <div
-            v-for="(dia, index) in dias"
-            :key="index"
-            @click="dia && (tieneMantenimientos(dia) || tieneSugerencias(dia)) ? abrirDetalle(dia) : null"
-            class="aspect-square border border-gray-200 rounded-lg p-1 sm:p-2 relative transition"
-            :class="{
-              'bg-gray-50': !dia,
-              'bg-white hover:bg-gray-50': dia && !tieneMantenimientos(dia) && !tieneSugerencias(dia),
-              'bg-blue-50 border-blue-300 hover:bg-blue-100 cursor-pointer': dia && tieneMantenimientos(dia),
-              'bg-yellow-50 border-yellow-300 hover:bg-yellow-100 cursor-pointer': dia && !tieneMantenimientos(dia) && tieneSugerencias(dia),
-            }"
-          >
-            <span v-if="dia" class="text-xs sm:text-base font-semibold text-gray-700">{{ dia }}</span>
-            
-           <!-- Indicador de mantenimientos -->
-            <div v-if="dia && tieneMantenimientos(dia)" class="absolute top-1 right-1">
-             <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-blue-600 rounded-full shadow-md"> </div>
-            </div>
+       <div
+  v-for="(dia, index) in dias"
+  :key="index"
+  @click="dia && (tieneMantenimientos(dia) || tieneSugerencias(dia)) ? abrirDetalle(dia) : null"
+  class="aspect-square border border-gray-200 rounded-lg p-1 sm:p-2 relative transition"
+  :class="{
+    'bg-gray-50': !dia,
+    'bg-white hover:bg-gray-50': dia && !tieneMantenimientos(dia) && !tieneSugerencias(dia),
+    'bg-blue-50 border-blue-300 hover:bg-blue-100 cursor-pointer': dia && tieneMantenimientos(dia),
+    'bg-yellow-50 border-yellow-300 hover:bg-yellow-100 cursor-pointer': dia && !tieneMantenimientos(dia) && tieneSugerencias(dia),
+  }"
+>
+  <span v-if="dia" class="text-xs sm:text-base font-semibold text-gray-700">{{ dia }}</span>
+  
+  <!-- Indicador de mantenimientos - Esquina superior derecha -->
+  <span v-if="dia && tieneMantenimientos(dia)" class="absolute top-1 right-1 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-blue-600 rounded-full shadow-md block"></span>
 
-            <!-- Indicador de sugerencias -->
-            <div v-if="dia && !tieneMantenimientos(dia) && tieneSugerencias(dia)" class="absolute top-1 right-1">
-            <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-yellow-500 rounded-full shadow-md"> </div>
-            </div>
-
+  <!-- Indicador de sugerencias - Esquina superior derecha -->
+  <span v-if="dia && !tieneMantenimientos(dia) && tieneSugerencias(dia)" class="absolute top-1 right-1 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-yellow-500 rounded-full shadow-md block"></span>
+</div>
         <!-- Leyenda -->
         <div class="flex flex-col sm:flex-row gap-3 sm:gap-6 mt-6 justify-center text-xs sm:text-sm">
           <div class="flex items-center justify-center gap-2">
@@ -265,7 +261,7 @@ const getEstadoColor = (estado: string) => {
       </div>
     </div>
     </div>
-    </div>
+    
 
     <!-- Modal de detalles -->
     <Transition name="modal-backdrop">
